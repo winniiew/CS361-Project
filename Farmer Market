@@ -1,4 +1,3 @@
-
 #Month
 month = input("Input the month (e.g. January, February etc.): ")
 day = int(input("Input the day: "))
