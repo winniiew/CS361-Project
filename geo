@@ -1,27 +1,21 @@
-#https://www.geeksforgeeks.org/get-the-city-state-and-country-names-from-latitude-and-longitude-using-python/
-
-# import module
 from geopy.geocoders import Nominatim
+import json
+geolocator = Nominatim(user_agent="TestGeolocator")
 
-# initialize Nominatim API
-geolocator = Nominatim(user_agent="geoapiExercises")
- 
+lat = float(input("Input a Latitude: "))
+long = float(input("Input a Longitude: "))
 
-# Latitude & Longitude input
-Latitude = float(input(''))
-Longitude = float(input(''))
+location = geolocator.reverse(f"{lat}, {long}")
+#location = geolocator.reverse(f"44.569754, -123.296360")
 
-location = geolocator.reverse(Latitude+","+Longitude)
+# List of keys to remove from the location output
+outputClean = ["place_id", "licence", "osm_type", "osm_id", "display_name", "boundingbox"]
+for nameToRemove in outputClean:
+    del location.raw[nameToRemove]
 
-address = location.raw['address']
+# Convert the raw location to JSOON
+jsonOutput = json.dumps(str(location.raw))
 
-# traverse the data
-city = address.get('city', '')
-state = address.get('state', '')
-country = address.get('country', '')
-code = address.get('country_code')
-zipcode = address.get('postcode')
-print('City : ', city)
-print('State : ', state)
-print('Country : ', country)
-print('Zip Code : ', zipcode)
+# Write the data to a file as jsoon
+with open("locationOutput.json", "w") as f:
+    f.write(jsonOutput)
