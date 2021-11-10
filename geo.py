@@ -21,5 +21,5 @@ for nameToRemove in outputClean:
 jsonOutput = json.dumps(str(location.raw))
 
 # Write the data to a file as jsoon
-with open("locationOutput.json", "w") as f:
+with open("LocationOutput.json", "w") as f:
     f.write(jsonOutput)
