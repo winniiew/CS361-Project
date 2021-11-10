@@ -1,5 +1,6 @@
-#CS 361 F21 Microservice
-#Name: Winnie Woo
+# CS361 Assignment 5: MVP Microservices
+# Author: Winnie Woo
+# Date: 11/10/2021
 
 from geopy.geocoders import Nominatim
 import json
