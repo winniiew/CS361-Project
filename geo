@@ -5,7 +5,7 @@ from geopy.geocoders import Nominatim
 
 # initialize Nominatim API
 geolocator = Nominatim(user_agent="geoapiExercises")
-
+ 
 
 # Latitude & Longitude input
 Latitude = float(input(''))
@@ -13,7 +13,7 @@ Longitude = float(input(''))
 
 location = geolocator.reverse(Latitude+","+Longitude)
 
-address = location.raw['address'] 
+address = location.raw['address']
 
 # traverse the data
 city = address.get('city', '')
