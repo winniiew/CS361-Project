@@ -1,3 +1,6 @@
+#CS 361 F21 Microservice
+#Name: Winnie Woo
+
 from geopy.geocoders import Nominatim
 import json
 geolocator = Nominatim(user_agent="TestGeolocator")
