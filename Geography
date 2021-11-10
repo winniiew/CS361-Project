@@ -1,3 +1,5 @@
+#https://www.geeksforgeeks.org/get-the-city-state-and-country-names-from-latitude-and-longitude-using-python/
+
 # import module
 from geopy.geocoders import Nominatim
 
@@ -6,12 +8,12 @@ geolocator = Nominatim(user_agent="geoapiExercises")
 
 
 # Latitude & Longitude input
-Latitude = "25.594095"
-Longitude = "85.137566"
+Latitude = input('')
+Longitude = input('')
 
 location = geolocator.reverse(Latitude+","+Longitude)
 
-address = location.raw['address']
+address = location.raw['address'] 
 
 # traverse the data
 city = address.get('city', '')
