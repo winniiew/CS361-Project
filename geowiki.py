@@ -26,16 +26,23 @@ def getCityInfoFromLatLong():
     return json.loads(str(location.raw).replace("'", "\""))
 
 
-def display_info(query):
+def display_info(cityInfo):
     """
         Takes as input a query and writes result to a text file named search_result.txt
         Uses Wikipedia to search and return a summary of text related to search query
         """
 
+    # If the returned location doesn't have a city name pull the county instead
+    if "city" in cityInfo["address"]:
+        cityQuery = cityInfo["address"]["city"].strip() + "," + cityInfo["address"]["state"]
+    else:
+        print("No city name found, the county in which these coordinates are located was used instead")
+        cityQuery = cityInfo["address"]["county"].strip() + "," + cityInfo["address"]["state"]
+
     # search wikipedia, parse data, and write summary to search_result.txt
-    summary = wikipedia.summary(query)
+    summary = wikipedia.summary(cityQuery)
     #print(summary)
-    r_dict = {'name':query, 'summary':summary}
+    r_dict = {'name':cityQuery, 'summary':summary, 'location_info':cityInfo}
 
     with open("search_result.txt", "w") as outfile:
         json.dump(r_dict, outfile)
@@ -46,12 +53,5 @@ if __name__ == "__main__":
     # Reverse geocode the lat/long to get the location information
     cityInfo = getCityInfoFromLatLong()
 
-    # If the returned location doesn't have a city name pull the county instead
-    if "city" in cityInfo["address"]:
-        cityQuery = cityInfo["address"]["city"].strip() + "," + cityInfo["address"]["state"]
-    else:
-        print("No city name found, the county in which these coordinates are located was used instead")
-        cityQuery = cityInfo["address"]["county"].strip() + "," + cityInfo["address"]["state"]
-
-    display_info(cityQuery)
+    display_info(cityInfo)
     print("Output written to file!")
