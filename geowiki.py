@@ -1,7 +1,7 @@
 # CS361 Assignment 7
 # Author: Winnie Woo
 # Date: 11/11/2021
-#
+
 
 from geopy.geocoders import Nominatim
 import json
