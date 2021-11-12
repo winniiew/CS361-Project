@@ -43,7 +43,7 @@ def display_info(cityInfo):
     #print(summary)
     r_dict = {'name':cityQuery, 'summary':summary, 'location_info':cityInfo}
 
-    with open("search_result.txt", "w") as outfile:
+    with open("wiki_result.txt", "w") as outfile:
         json.dump(r_dict, outfile)
 
 
