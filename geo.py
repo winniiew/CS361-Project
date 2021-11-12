@@ -16,5 +16,5 @@ for nameToRemove in outputClean:
 output = str(location.raw).replace("'", "\"")
 
 # Write the data to a file as json
-with open("locationOutput.json", "w") as f:
+with open("locationOutput.txt", "w") as f:
     f.write(output)
