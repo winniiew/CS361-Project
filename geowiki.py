@@ -27,7 +27,7 @@ def getCityInfoFromLatLong():
 
 def display_info(cityInfo):
         """
-        Takes as input a query and writes result to a text file named search_result.txt
+        Takes input as a query and writes result to search_result.txt
         Uses Wikipedia to search and return a summary of text related to search query
         """
 
