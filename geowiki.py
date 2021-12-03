@@ -24,7 +24,7 @@ def getCityInfoFromLatLong():
 
     return json.loads(str(location.raw).replace("'", "\""))
 
-# Takes input as a query and writes result to wiki_result.txt
+
 def display_info(cityInfo):
  
     # If returned location doesn't have a city name, pull the county instead
