@@ -1,6 +1,6 @@
 First install ```get-pip.py``` , then run ```pip install geopy``` and ```pip install wikipedia```
 
-```geowiki.py``` is using Eliane's wikipedia scraper to output information on a set of coordinates
+```geowiki.py``` is using a wikipedia scraper to output information on a set of coordinates
 
 Below is an example for Portland, Oregon
 
